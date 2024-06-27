@@ -1,0 +1,74 @@
+{
+  "Task": [
+    {
+      "id": "ffd0"
+    },
+    {
+      "id": "4798",
+      "task_name": "jsakjdkj",
+      "Description": "asjdsjk",
+      "status_id": 1,
+      "due_date": "2024-06-26T07:14:08.914Z"
+    },
+    {
+      "id": "f598",
+      "task_name": "dsadd",
+      "Description": "sads",
+      "status_id": 2,
+      "due_date": "2024-06-26T07:16:19.647Z"
+    },
+    {
+      "id": "09cb",
+      "task_name": "das",
+      "Description": "sad",
+      "status_id": 1,
+      "due_date": "2024-06-26T07:17:57.072Z"
+    },
+    {
+      "id": "1729",
+      "task_name": "Ryan",
+      "Description": "Marayag",
+      "status_id": 4,
+      "due_date": "2024-06-27T00:33:48.373Z"
+    },
+    {
+      "id": "a193",
+      "task_name": "To-do-list",
+      "Description": "Creating to-do list",
+      "status_id": 2,
+      "due_date": "2024-06-27T01:13:43.045Z"
+    },
+    {
+      "id": "79cf",
+      "task_name": "123",
+      "Description": "Asd",
+      "status_id": 1,
+      "due_date": "2024-06-27T06:20:56.517Z"
+    },
+    {
+      "id": "c0b7",
+      "task_name": "asdasd",
+      "Description": "asdsd",
+      "status_id": 3,
+      "due_date": "2024-06-27T06:23:47.331Z"
+    }
+  ],
+  "status": [
+    {
+      "id": "1",
+      "description": "Pending Task"
+    },
+    {
+      "id": "2",
+      "description": "In Progress Task"
+    },
+    {
+      "id": "3",
+      "description": "Completed Task"
+    },
+    {
+      "id": "4",
+      "description": "Cancelled Task"
+    }
+  ]
+}
