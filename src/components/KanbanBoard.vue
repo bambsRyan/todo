@@ -48,7 +48,7 @@ export default {
                 await axios.patch(`http://localhost:3000/Task/${data.id}`, data);
                 this.fetchTasks();
             } catch (error) {
-                console.log(error)  ;
+                console.log(error);
             }
         },
         async deleteTask(id) {
@@ -64,6 +64,7 @@ export default {
         this.fetchTasks();
         this.$root.emitter.on('updateTask', this.updateTask)
         this.$root.emitter.on('deleteTask', this.deleteTask)
+        this.$root.emitter.on('updater', this.updateTask)
     }
 }
 </script>

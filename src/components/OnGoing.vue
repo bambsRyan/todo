@@ -6,29 +6,52 @@
             <hr>    
         </div>
         <div class="content">
+            <vue-draggable-next :list="ongoing"
+            group="items"
+            @start="drag = true"
+            @end="drag = false"
+            item-key="item"
+            @change="updateTask"
+            class="min">
             <div class="card" v-for="(item, index) in ongoing" :key="index">
+                <updateTask :item="item"></updateTask>
+                <deleteTask :item="item"></deleteTask>
                 <p class="title">{{ item.task_name}}</p>
                 <p class="desc">{{ item.Description }}</p>
                 <p class="date"> Due Date: {{ formattedDate(item.due_date) }}</p>
             </div>
+            </vue-draggable-next>
         </div>
     </div>
-</template> 
+</template>
 
 
 <script>
+import { VueDraggableNext } from 'vue-draggable-next';
+import updateTask from './updateTask.vue';
+import deleteTask from './deleteTask.vue';
 export default {
     name: 'OnGoing',
     props: ['ongoing'],
+    components: {
+        VueDraggableNext, updateTask, deleteTask
+    },
     methods: {
         formattedDate(date) {
             return new Date(date).toLocaleDateString('en-US');
+        },
+        async updateTask(item) {
+                item.added.element.status_id = 2;
+                this.$root.emitter.emit('updateTask', item.added.element);
         }
     }
 }
 </script>
 
 <style scoped>
+.min{
+    min-height: 100%;
+}
 .date{
     text-align: right;
 }
@@ -66,6 +89,7 @@ export default {
     padding: 10px;
     height: min-content;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: grab;
 }
 .inside{
     width: 100%;

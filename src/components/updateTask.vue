@@ -9,7 +9,7 @@
             <div>
                 <label for="Description">Description: </label>
                 <InputText id="Description" v-model="item.Description" autocomplete="off" placeholder="Description"/>
-            </div> 
+            </div>
             <div>
                 <label for="due_date">Due date: </label>
                 <DatePicker id="date" v-model="item.due_date" dateFormat="dd/mm/yy"/>

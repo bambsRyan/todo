@@ -1,40 +1,56 @@
-<template>
-    <div class="pending">
-        <div class="inside">
-            <hr>
-            <h1>Pending Task</h1>
-            <hr>
-        </div>
-        <div class="content">
-            <div class="card" v-for="(item, index) in pending" :key="index">
-                <updateTask :item="item"></updateTask>
-                <deleteTask :item="item"></deleteTask>
-                <p class="title">{{ item.task_name}}</p>
-                <p class="desc">{{ item.Description }}</p>
-                <p class="date"> Due Date: {{ formattedDate(item.due_date) }}</p>
+    <template>
+        <div class="pending">
+            <div class="inside">
+                <hr>
+                <h1>Pending Task</h1>
+                <hr>
+            </div>
+            <div class="content">
+                <vue-draggable-next :list="pending"
+                group="items"
+                @start="drag = true"
+                @end="drag = false"
+                item-key="id"
+                @change="updateTask"
+                class="min">
+                <div class="card" v-for="(item, index) in pending" :key="index">
+                    <updateTask :item="item"></updateTask>
+                    <deleteTask :item="item"></deleteTask>
+                    <p class="title">{{ item.task_name}}</p>
+                    <p class="desc">{{ item.Description }}</p>
+                    <p class="date"> Due Date: {{ formattedDate(item.due_date) }}</p>
+                </div>
+                </vue-draggable-next>
             </div>
         </div>
-    </div>
-</template>
+    </template>
 
-<script>
-import updateTask from './updateTask.vue';
-import deleteTask from './deleteTask.vue';
-export default{
-    name: 'PendingTask',
-    props: ['pending'],
-    components: {
-        updateTask, deleteTask
-    },
-    methods: {
-        formattedDate(date) {
-            return new Date(date).toLocaleDateString('en-US');
-        }
+    <script>
+    import updateTask from './updateTask.vue';
+    import deleteTask from './deleteTask.vue';
+    import { VueDraggableNext } from 'vue-draggable-next';
+    export default{
+        name: 'PendingTask',
+        props: ['pending'],
+        components: {
+            updateTask, deleteTask, VueDraggableNext
+        },
+        methods: {
+            formattedDate(date) {
+                return new Date(date).toLocaleDateString('en-US');
+            },
+            async updateTask(item) {
+                item.added.element.status_id = 1;
+                this.$root.emitter.emit('updateTask', item.added.element);
+            }
+        },
     }
-}
-</script>
+    </script>
 
 <style scoped>
+.min{
+    min-height: 100%;
+}
 .date{
     text-align: right;
 }
@@ -67,6 +83,7 @@ div > p {
     padding: 10px;
     height: min-content;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: grab;
 }
 .pending{
     width: 25%;
@@ -104,5 +121,6 @@ h1{
     background-color: #f5a19b;
     border-radius: 10px 10px 10px 10px;
     padding: 10px;
+    min-height: 100px;
 }
 </style>

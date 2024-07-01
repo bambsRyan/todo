@@ -3,7 +3,7 @@
         <PendingTask :pending="pending"/>
         <OnGoing :ongoing="ongoing"/>
         <CompletedTask :completed="completed"/>
-        <Cancelled :cancelled="cancelled"/>
+        <CancelledTasks :cancelled="cancelled"/>
     </div>
 </template>
 
@@ -11,11 +11,11 @@
 import PendingTask from './PendingTask.vue';
 import OnGoing from './OnGoing.vue';
 import CompletedTask from './CompletedTask.vue';
-import Cancelled from './Cancelled.vue';
+import CancelledTasks from './CancelledTasks.vue';
 export default {
     props: ['Task'],
     name: 'KBoard',
-    components: { PendingTask, OnGoing, CompletedTask, Cancelled},
+    components: { PendingTask, OnGoing, CompletedTask, CancelledTasks},
     data() {
         return {
             pending: [],
