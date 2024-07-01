@@ -1,7 +1,9 @@
 <template>
-    <TopNavbar/>
-    <AddTask @addTask="addTask" id="button"/>
-    <KBoard v-if="Task.length" :Task="Task"/>
+    <div>
+        <TopNavbar/>
+        <AddTask @addTask="addTask" id="button"/>
+        <KBoard v-if="Task.length || {}" :Task="Task"/>
+    </div>
 </template>
 
 <script>
@@ -40,14 +42,32 @@ export default {
             } catch (error) {
                 console.log(error);
             }
+        },
+        async updateTask(data) {
+            try {
+                await axios.patch(`http://localhost:3000/Task/${data.id}`, data);
+                this.fetchTasks();
+            } catch (error) {
+                console.log(error)  ;
+            }
+        },
+        async deleteTask(id) {
+            try {
+                await axios.delete(`http://localhost:3000/Task/${id}`);
+                this.fetchTasks();
+            } catch (error) {
+                console.log(error);
+            }
         }
     },
     async mounted() {
         this.fetchTasks();
+        this.$root.emitter.on('updateTask', this.updateTask)
+        this.$root.emitter.on('deleteTask', this.deleteTask)
     }
 }
 </script>
-
+    
 <style scoped>
     #button{
         display:flex;

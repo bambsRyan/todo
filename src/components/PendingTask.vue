@@ -7,6 +7,8 @@
         </div>
         <div class="content">
             <div class="card" v-for="(item, index) in pending" :key="index">
+                <updateTask :item="item"></updateTask>
+                <deleteTask :item="item"></deleteTask>
                 <p class="title">{{ item.task_name}}</p>
                 <p class="desc">{{ item.Description }}</p>
                 <p class="date"> Due Date: {{ formattedDate(item.due_date) }}</p>
@@ -16,9 +18,14 @@
 </template>
 
 <script>
+import updateTask from './updateTask.vue';
+import deleteTask from './deleteTask.vue';
 export default{
     name: 'PendingTask',
     props: ['pending'],
+    components: {
+        updateTask, deleteTask
+    },
     methods: {
         formattedDate(date) {
             return new Date(date).toLocaleDateString('en-US');

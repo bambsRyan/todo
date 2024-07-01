@@ -11,12 +11,8 @@
                 <InputText id="Description" v-model="Description" autocomplete="off" placeholder="Description"/>
             </div>
             <div>
-                <label for="prog">Progress: </label>
-                <Select id="select" v-model="prog" :options="progress" optionLabel="label" placeholder="Progress"/>
-            </div>
-            <div>
                 <label for="due_date">Due date: </label>
-                <DatePicker id="date" v-model="due_date" dateFormat="dd/mm/yy" />
+                <DatePicker id="date" v-model="due_date" dvateFormat="dd/mm/yy"/>
             </div>
             <template #footer>
                 <Button label="Cancel" text severity="secondary" @click="clearFields" autofocus />
@@ -48,7 +44,7 @@ export default {
             visible: false,
             task_name: '',
             Description: '',
-            status_id: '',
+            status_id: 1,
             prog: null,
             due_date: new Date(),
             progress: [

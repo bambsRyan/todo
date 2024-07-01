@@ -1,7 +1,7 @@
 <template>
     <div class="kboard">
         <PendingTask :pending="pending"/>
-        <OnGoing :ongoing="ongoing" />
+        <OnGoing :ongoing="ongoing"/>
         <CompletedTask :completed="completed"/>
         <Cancelled :cancelled="cancelled"/>
     </div>
@@ -55,7 +55,6 @@ export default {
 }
 
 </script>
-
 
 <style scoped>
     .kboard{
