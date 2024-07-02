@@ -40,8 +40,15 @@
                 return new Date(date).toLocaleDateString('en-US');
             },
             async updateTask(item) {
-                item.added.element.status_id = 1;
-                this.$root.emitter.emit('updateTask', item.added.element);
+                let itemToUpdate;
+                if(item.removed){
+                    itemToUpdate = item.removed.element;
+                } else if(item.added){
+                    item.added.element.status_id = 1;
+                    itemToUpdate = item.added.element;
+                }
+               
+                this.$root.emitter.emit('updateTask', itemToUpdate);
             }
         },
     }

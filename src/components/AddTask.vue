@@ -68,7 +68,6 @@ export default {
         async clearFields(){
             this.task_name = '';
             this.Description = '';
-            this.status_id = '';
             this.due_date = new Date();
             this.visible = false;   
         }

@@ -12,7 +12,7 @@
             @end="drag = false"
             item-key="item"
             @change="updateTask"
-            class="min">
+            class="min over">
             <div class="card" v-for="(item, index) in ongoing" :key="index">
                 <updateTask :item="item"></updateTask>
                 <deleteTask :item="item"></deleteTask>
@@ -41,8 +41,15 @@ export default {
             return new Date(date).toLocaleDateString('en-US');
         },
         async updateTask(item) {
-                item.added.element.status_id = 2;
-                this.$root.emitter.emit('updateTask', item.added.element);
+            let itemToUpdate;
+                if(item.removed){
+                    itemToUpdate = item.removed.element;
+                } else if(item.added){
+                    item.added.element.status_id = 2;
+                    itemToUpdate = item.added.element;
+                }
+               
+                this.$root.emitter.emit('updateTask', itemToUpdate);
         }
     }
 }
@@ -74,7 +81,31 @@ export default {
     height: 90%;
     background-color: #aaf683;
     border-radius: 10px 10px 10px 10px;
+}
+.over{
+    width: 100%;
+    height: 90%;
+    overflow-y: auto;
     padding: 10px;
+    border-radius: 10px 10px 10px 10px;
+}
+.over::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+.over::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+.over::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #867c7c;
 }
 .ongoing{
     width: 25%;
