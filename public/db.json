@@ -4,70 +4,70 @@
       "id": "acef",
       "task_name": "lumej",
       "Description": "baboy",
-      "status_id": "",
+      "status_id": 1,
       "due_date": "2024-07-02T16:00:00.000Z"
     },
     {
       "id": "325f",
       "task_name": "lumej",
       "Description": "saddd",
-      "status_id": "",
+      "status_id": 3,
       "due_date": "2024-07-01T16:00:00.000Z"
     },
     {
       "id": "6a16",
       "task_name": "saddas",
       "Description": "dsad",
-      "status_id": "",
+      "status_id": 3,
       "due_date": "2024-07-08T16:00:00.000Z"
     },
     {
       "id": "eec1",
       "task_name": "lumej",
       "Description": "dsadadsdadsd",
-      "status_id": "",
+      "status_id": 1,
       "due_date": "2024-07-01T08:13:35.599Z"
     },
     {
       "id": "0fd4",
       "task_name": "richard",
       "Description": "chupapi",
-      "status_id": "",
+      "status_id": 3,
       "due_date": "2024-07-01T08:14:05.812Z"
     },
     {
       "id": "0426",
       "task_name": "Wahehe",
       "Description": "jemul",
-      "status_id": 3,
+      "status_id": 2,
       "due_date": "2024-07-30T16:00:00.000Z"
     },
     {
       "id": "399f",
       "task_name": "Munyanyo",
       "Description": "chupapi",
-      "status_id": 1,
+      "status_id": 2,
       "due_date": "2024-07-23T16:00:00.000Z"
     },
     {
       "id": "514c",
       "task_name": "ASD",
       "Description": "asd",
-      "status_id": 3,
+      "status_id": 4,
       "due_date": "2024-07-02T00:22:09.987Z"
     },
     {
       "id": "55c6",
       "task_name": "ASD",
       "Description": "ssss",
-      "status_id": 2,
+      "status_id": 4,
       "due_date": "2024-07-02T00:22:32.636Z"
     },
     {
       "id": "c22b",
       "task_name": "asdasd",
       "Description": "asd",
-      "status_id": 3,
+      "status_id": 2,
       "due_date": "2024-07-02T00:25:34.400Z"
     }
   ],

@@ -12,7 +12,7 @@
             </div>
             <div>
                 <label for="due_date">Due date: </label>
-                <DatePicker id="date" v-model="item.due_date" dateFormat="dd/mm/yy"/>
+                <DatePicker id="date" v-model="format" dateFormat="dd/mm/yy"/>
             </div>
             <template #footer>
                 <Button label="Cancel" text severity="secondary" @click="clearFields" autofocus />
@@ -40,8 +40,8 @@ data() {
                 { label: 'In Progress', value: 2 },
                 { label: 'Done', value: 3 },
                 { label: 'Cancelled', value: 4}
-            ]
-
+            ],
+        format: new Date(this.item.due_date)
     };
 },  
 components: {
